@@ -1,7 +1,2 @@
-build
-cache
-.sass-cache
-app
-build-tools
-.idea
-.firebase/
+node_modules/
+_site/

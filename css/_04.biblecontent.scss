@@ -25,14 +25,6 @@
     .nav-controls {
       font-weight: normal;
       cursor: pointer;
-
-      a.text-controls-verses {
-        cursor: pointer;
-        &:hover {
-          text-decoration: underline;
-          color: $color-text;
-        }
-      }
     }
   }
 
@@ -73,22 +65,26 @@
       @for $width from $video-width through $video-width-min {
         @media (max-width: $width) {
           width:$width;
-          height:$width/$video-width*$video-height;
+          height:calc($width/$video-width*$video-height);
         }
       }
     }
   }
 
   h2 {
-    margin: $margin-standard*2 0 $margin-standard 0;
+    margin: calc($margin-standard*2) 0 $margin-standard 0;
     font-size: 1.5em;
     font-weight: 600;
     color: $color-text;
   }
 
-  .text-controls-audio {
-    display: none;
+  .text-controls-verses {
     cursor: pointer;
+    color: $color-unimportant;
+    &:hover {
+      text-decoration: underline;
+      color: $color-text;
+    }
   }
 
   .time {
@@ -98,86 +94,48 @@
 
   .text {
     margin: $margin-standard;
-    font-size: 1.2em;
-    line-height: 1.75em;
     font-weight: normal;
     color: $color-text;
     text-align: justify;
 
-    /* source: biblesorg */
-    &.biblesorg {
-      p {
-        &.p {
-          margin: 1.25em 0;
-        }
-        &.pi {
-          margin: 1.25em 1em;
-        }
-        &.q, &.q1 {
-          text-indent: 1em;
-        }
-        &.q2, &.q3 {
-          text-indent: 2em;
-        }
-      }
-      .d, .s, .s1, .s2, .v, .r, .mr, .ms1 {
-        display: none;
-      }
-      &.show-verses {
-        .v {
-          display: inline;
-          font-weight: 300;
-          font-size: smaller;
-          color: $color-verses;
-        }
-      }
+    p {
+      margin: 1.25em 0;
+      font-size: 1.2em;
+      line-height: 1.75em;
+      vertical-align: bottom;
     }
 
-    /* source: esvapi */
-    &.esvapi {
-      h2 {
-        display: none;
-      }
-      p {
-        margin: 2em 0;
-      }
-      .chapter-num, .verse-num {
-        display: none;
-      }
-      .block-indent {
-        margin: 0 2em;
-      }
-      &.show-verses {
-        .chapter-num, .verse-num {
-          display: inline;
-          font-weight: 300;
-          font-size: smaller;
-          color: $color-verses;
-        }
-      }
+    p.title {
+      font-size: 1.4em;
+      font-weight: 600;
     }
 
-    &.netbibleapi {
-      h3, .vref, p.psasuper {
-        display: none;
+    p.poetry {
+      margin: 0 2em;
+    }
+
+    .c {
+      display: none;
+      font-weight: bold;
+      font-size: 1.5em;
+      line-height: normal;
+    }
+
+    .v {
+      display: none;
+      font-size: .83em;
+      vertical-align: text-top;
+      font-weight: bold;
+      color: $color-verses;
+      line-height: normal;
+    }
+
+    &.show-verses {
+      .c {
+        display: inline;
       }
-      p {
-        margin: 2em 0;
-        &.poetry {
-          margin: 0;
-          text-indent: 1em;
-        }
-      }
-      i {
-        font-style: italic;
-      }
-      &.show-verses {
-        .vref {
-          display: inline;
-          font-weight: 300;
-          font-size: smaller;
-          color: $color-verses;
-        }
+      .v {
+        display: inline;
       }
     }
   }

@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "build": "deno task lume",
+    "serve": "deno task lume -s",
+    "deploy": "rm -fr ./_site && deno task build && wrangler pages deploy --project-name today-bible ./_site",
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.194.0/",
+    "lume/": "https://deno.land/x/lume@v1.18.1/"
+  }
+}

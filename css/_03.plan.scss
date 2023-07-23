@@ -16,7 +16,7 @@
       font-weight: bold;
       div {
         display: table-cell;
-        padding: $margin-standard/4 $margin-standard/2;
+        padding: calc($margin-standard/4) calc($margin-standard/2);
         text-align: left;
       }
     }
@@ -24,14 +24,14 @@
       display: table-row;
       div {
         display: table-cell;
-        padding: $margin-standard/4 $margin-standard/2;
+        padding: calc($margin-standard/4) calc($margin-standard/2);
         text-align: left;
         white-space: nowrap;
         &.number {
           font-weight: bold;
         }
         @media (max-width: $width-compact) {
-          padding: $margin-standard/8 $margin-standard/4;
+          padding: calc($margin-standard/8) calc($margin-standard/4);
           font-size: 0.8em;
         }
       }

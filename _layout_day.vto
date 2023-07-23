@@ -1,0 +1,85 @@
+---
+layout: ./_layout.vto
+pageclasses: biblecontent day
+---
+
+<meta name="readprayrepeat:day" content="{{ day }}">
+
+<script src="/js/day.js" defer></script>
+
+<table class="nav">
+  <tr>
+    <td class="nav-item nav-previous">
+      {{ if prevday }}<a href="/{{ prevday }}/"><i class="icon-left-circled"></i> Day {{ prevday }}</a>{{ /if }}
+    </td>
+    <td class="nav-item nav-current">
+      Day {{ day }}
+    </td>
+    <td class="nav-item nav-next">
+      {{ if nextday }}<a href="/{{ nextday }}/">Day {{ nextday }} <i class="icon-right-circled"></i></a>{{ /if }}
+    </td>
+  </tr>
+</table>
+
+<div class="nav-current-info">
+  <div class="nav-current-date">&nbsp;</div>
+  <div class="passages">
+    {{ for i, passage of passages }}
+      <a href="#reading-{{ i }}">{{- passage.ref }}</a>
+      {{- if i < (passages.length-2) }},{{ /if }}
+      {{ if i == (passages.length-2) }}&amp;{{ /if }}
+    {{ /for}}
+  </div>
+  <div class="time">~{{ duration }} mins</div>
+</div>
+
+{{ if youtubeid }}
+  <div class="watch">
+    <iframe allowfullscreen src="https://www.youtube.com/embed/{{ youtubeid }}?rel=0&showinfo=0"></iframe>
+  </div>
+{{ /if }}
+
+{{ for i, passage of passages }}
+  <div id="reading-{{ i }}">
+    <h2>Read {{ passage.ref }}</h2>
+    <div class="text">
+      {{ for b of passage.books }}
+        {{ for l of b.lines }}
+          <p class="{{ l.type }}">
+            {{ for v of l.verses }}
+                {{ if v.part == 1 }}
+                  {{ if v.verse == 1 }}
+                    <sup class="c">{{ v.chapter }}</sup>
+                  {{ else }}
+                    <sup class="v">{{ v.verse }}</sup>
+                  {{ /if }}
+                {{ /if }}
+                {{ v.text }}
+            {{ /for }}
+          </p>
+        {{ /for }}
+      {{ /for }}
+    </div>
+  </div>
+{{ /for }}
+
+<table class="nav">
+  <tr>
+    <td class="nav-item nav-previous">
+      {{ if prevday }}<a href="/{{ prevday }}/"><i class="icon-left-circled"></i> Day {{ prevday }}</a>{{ /if }}
+    </td>
+    <td class="nav-item nav-controls">
+      <a class="text-controls-verses">Verses</a>
+    </td>
+    <td class="nav-item nav-next">
+      {{ if nextday }}<a href="/{{ nextday }}/">Day {{ nextday }} <i class="icon-right-circled"></i></a>{{ /if }}
+    </td>
+  </tr>
+</table>
+
+<div class="footer">
+  <div class="copyright">
+    {{ copyright }}
+    <p>Videos by <a href="https://www.youtube.com/user/jointhebibleproject">The Bible Project</a>.</p>
+  </div>
+</div>
