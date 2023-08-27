@@ -1,5 +1,5 @@
 import lume from 'lume/mod.ts';
-const site = lume();
+const site = lume({ server: { port: 8001 }});
 
 import vento from 'lume/plugins/vento.ts';
 site.use(vento());
