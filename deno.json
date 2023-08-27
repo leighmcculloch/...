@@ -1,8 +1,9 @@
 {
   "tasks": {
+    "clean": "rm -fr ./_site",
     "build": "deno run --allow-env=LUME_ENV --allow-read=. --allow-write=./_site --allow-net=localhost:8080 build.ts",
     "serve": "deno run --allow-env=LUME_ENV --allow-read=. --allow-write=./_site --allow-net=localhost:8080,0.0.0.0:8000 serve.ts",
-    "deploy": "rm -fr ./_site && deno task build && wrangler pages deploy --project-name today-bible ./_site"
+    "deploy": "deno task clean && deno task build && wrangler pages deploy --project-name today-bible ./_site"
   },
   "imports": {
     "std/": "https://deno.land/std@0.200.0/",
