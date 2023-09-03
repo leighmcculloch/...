@@ -6,7 +6,7 @@ export default async function* ({ readings }) {
     const refs = [ref1, ref2].map(r => r.split(',')).flat();
     const passages = await Promise.all(refs.map(async r => ({
       ref: r,
-      ...await (await fetch(`http://localhost:8080/?ref=${encodeURIComponent(r)}`)).json()
+      ...await (await fetch(`http://localhost:8080/?bible=NET&ref=${encodeURIComponent(r)}`)).json()
     })));
     const copyright = [...new Set(passages.map(p => p.copyright))].join('\n');
 
