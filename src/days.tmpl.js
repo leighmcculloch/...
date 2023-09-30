@@ -20,7 +20,7 @@ export default async function* ({ readings }) {
 
     yield {
       day,
-      url: `/${day}/index.html`,
+      url: `/${day}.html`,
       title: `Day ${day}`,
       prevday: day > 1 ? day - 1 : null,
       nextday: day < readings.length ? day + 1 : null,
