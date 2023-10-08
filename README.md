@@ -16,31 +16,6 @@ The reading plan and videos were created by <a href="http://thebibleproject.tumb
 
 The reading plan has good pace for even those new to the Bible. The accompanying videos by The Bible Project are a phenominal resource.
 
-## Development
-
-### Setup
-
-Requires `vgo` to be installed. See [research.swtch.com/vgo-tour](https://research.swtch.com/vgo-tour).
-
-Requires `sassc` to be installed.
-
-```bash
-git clone git@github.com/leighmcculloch/today.bible
-make setup
-```
-
-### Using Locally
-
-This will start a local server at `localhost:8080`.
-
-```bash
-make
-```
-
-### Deploying
-
-This will build and deploy the website to Google Storage.
-
 ```bash
 make deploy
 ```
